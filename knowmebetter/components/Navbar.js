@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="header">
       <h1 className="logo">
-        <a href="#">Know Me Better NextAuth</a>
+        <a href="/">Know Me Better</a>
       </h1>
       <ul className={`main-nav ${!session && loading ? "loading" : "loaded"}`}>
         <li>
@@ -16,13 +16,8 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href="/resume">
+          <Link href="/getdata">
             <a>Resume</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/blog">
-            <a>Blog</a>
           </Link>
         </li>
 
