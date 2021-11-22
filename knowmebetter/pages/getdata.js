@@ -185,6 +185,54 @@ export default function GetData() {
               </div>
               <div className="row m-2">
                 <h3>Github Repos</h3>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Github repo</h5>
+                        <p class="card-text">Repo description</p>
+                        <a href="#" class="card-link">
+                          Repo link
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Github repo</h5>
+                        <p class="card-text">Repo description</p>
+                        <a href="#" class="card-link">
+                          Repo link
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Github repo</h5>
+                        <p class="card-text">Repo description</p>
+                        <a href="#" class="card-link">
+                          Repo link
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Github repo</h5>
+                        <p class="card-text">Repo description</p>
+                        <a href="#" class="card-link">
+                          Repo link
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
