@@ -11,10 +11,8 @@ async function uploadResumeDetails(req, res) {
   }
 
   //upload to db
-  console.log("body");
-  console.log(req.body);
-  console.log(req.body.resumeData);
-  const resume = new ResumeDetails(req.body.resumeData);
+  const body = JSON.parse(req.body);
+  const resume = new ResumeDetails(body.resumeData);
   await resume.save();
 
   //return response
