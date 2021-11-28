@@ -3,8 +3,13 @@ import Head from "next/head";
 import styles from "../styles/resume.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { getSession, useSession } from "next-auth/client";
+
 
 export default function GetData() {
+  //Session
+  const [session] = useSession();
+  console.log({ session });
   // define state
   const [fullname, setfullname] = useState("");
   const [github, setgithub] = useState("");
@@ -185,6 +190,54 @@ export default function GetData() {
               </div>
               <div className="row m-2">
                 <h3>Github Repos</h3>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Github repo</h5>
+                        <p class="card-text">Repo description</p>
+                        <a href="#" class="card-link">
+                          Repo link
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Github repo</h5>
+                        <p class="card-text">Repo description</p>
+                        <a href="#" class="card-link">
+                          Repo link
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Github repo</h5>
+                        <p class="card-text">Repo description</p>
+                        <a href="#" class="card-link">
+                          Repo link
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Github repo</h5>
+                        <p class="card-text">Repo description</p>
+                        <a href="#" class="card-link">
+                          Repo link
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -192,4 +245,29 @@ export default function GetData() {
       </div>
     </Fragment>
   );
+}
+//Server Side Authentication to Render This page at Server side
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        //Securing Pages Server Side
+        //TO use a env variable to redirect url here instead of hard coding
+        //Append Redirect url to signin auth
+        destination:
+          "/api/auth/signin?callbackUrl=http://localhost:3000/getdata",
+        //Not perm applicable only when user is not logged in!
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {
+      redirect: {
+        destination: "/getdata",
+        session,
+      },
+    },
+  };
 }
