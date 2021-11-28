@@ -16,10 +16,20 @@ function Navbar() {
           </Link>
         </li>
         <li>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+        </li>
+        <li>
           <Link href="/getdata">
             <a>Resume</a>
           </Link>
         </li>
+        {/* <li>
+          <Link href="/blog">
+            <a>Blog</a>
+          </Link>
+        </li> */}
 
         {!loading && !session && (
           <li>

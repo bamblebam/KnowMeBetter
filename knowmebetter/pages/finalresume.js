@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import router from "next/router";
 import Head from "next/head";
-
+import { useRouter } from "next/router";
 export default function FinalResume({ props }) {
   // const data = router.query;
   // console.log(data);
