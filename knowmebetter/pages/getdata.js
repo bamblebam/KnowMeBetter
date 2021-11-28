@@ -4,6 +4,8 @@ import styles from "../styles/resume.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/client";
+
+
 export default function GetData() {
   //Session
   const [session] = useSession();
