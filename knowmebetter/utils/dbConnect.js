@@ -1,20 +1,21 @@
-import mongoose from 'mongoose';
+// Import Package
+import mongoose from "mongoose";
 
-const connection = {};
+// Connecting to Database
+async function connect() {
+  // MongoDB URI
+  const dbURI = process.env.DB_URL;
 
-async function dbConnect() {
-    if (connection.isConnected) {
-        return;
-
-    }
-    const db = await mongoose.connect(process.env.DB_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-
-    });
-
-    connection.isConnected = db.connections[0].readyState;
-    console.log(connection.isConnected);
+  try {
+    // Connect to Database
+    await mongoose.connect(dbURI);
+    console.log("MongoDB Atlas Connected");
+    return true;
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
 }
 
-export default dbConnect;
+// Exports
+export default connect;
