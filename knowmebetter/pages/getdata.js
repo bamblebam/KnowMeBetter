@@ -4,6 +4,7 @@ import styles from "../styles/resume.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/client";
+
 export default function GetData() {
   //Session
   const [session] = useSession();
@@ -21,8 +22,28 @@ export default function GetData() {
   const router = useRouter();
 
   //get the values and display it on next page
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const bodyQuery = {
+      resumeData: {
+        fullname: fullname,
+        title: title,
+        description: description,
+        email: email,
+        phone: phone,
+        city: city,
+        country: country,
+        github: github,
+      },
+    };
+
+    console.log("before api call");
+    let response = await fetch("/api/uploadResumeDetails", {
+      method: "POST",
+      body: JSON.stringify(bodyQuery),
+    });
+
     router.push({
       pathname: "/finalresume",
       query: {
