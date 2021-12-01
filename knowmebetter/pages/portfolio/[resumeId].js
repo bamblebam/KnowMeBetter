@@ -50,6 +50,12 @@ export default function PortfolioDetail(props) {
     description: resume.description,
   };
 
+  //projects
+  const projects = {
+    github: `https://github.com/${resume.github}`,
+    cards: repos,
+  };
+
   console.log(repos);
 
   return (
