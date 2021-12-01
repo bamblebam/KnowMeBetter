@@ -1,14 +1,12 @@
 import { Fragment } from "react";
-import { useRouter } from "next/router";
-import { useState } from "react";
 import { Intro, About } from "../../components/Intro";
 import { Projects } from "../../components/Work";
 import { Header } from "../../components/Header";
-import { projects } from "../../config/config";
 
 export default function PortfolioDetail(props) {
   const resume = props.resumeData.resume[0];
   const repos = props.repos;
+  const githubURL = `https://github.com/${resume.github}`;
   // console.log(repos);
   // console.log(resume);
 
@@ -28,12 +26,12 @@ export default function PortfolioDetail(props) {
     buttons: [
       {
         title: "Github",
-        link: "#contact",
+        link: githubURL,
         isPrimary: true,
       },
       {
         title: "LinkedIn",
-        link: "#contact",
+        link: resume.linkedin,
         isPrimary: false,
       },
       {
@@ -52,11 +50,11 @@ export default function PortfolioDetail(props) {
 
   //projects
   const projects = {
-    github: `https://github.com/${resume.github}`,
+    github: githubURL,
     cards: repos,
   };
 
-  console.log(repos);
+  // console.log(repos);
 
   return (
     <Fragment>
@@ -68,7 +66,7 @@ export default function PortfolioDetail(props) {
         buttons={intro.buttons}
       />
       <About title={about.title} description={about.description} />
-      <Projects title={projects.title} cards={projects.cards} />
+      <Projects github={projects.github} cards={projects.cards} />
     </Fragment>
   );
 }
