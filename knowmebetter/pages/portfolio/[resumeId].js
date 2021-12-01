@@ -17,27 +17,8 @@ import {
 } from "../../config/config";
 
 export default function PortfolioDetail(props) {
-  console.log(props);
-  //Router
-  const router = useRouter();
-  //States
-  const [fullname, setFullname] = useState("");
-  // const resumeId = router.query.resumeId;
-  // console.log(resumeId);
-
-  // let response = fetch("http://localhost:3000/api/getResumeDetail", {
-  //   method: "POST",
-  //   body: JSON.stringify({ resumeId: resumeId }),
-  // }).then((res) => res.json());
-
-  // const getData = async () => {
-  //   const data = await response;
-  //   setFullname(data.fullname);
-  // };
-
-  // const resumeData = getData();
-  // console.log(resumeData);
-  // console.log(fullname);
+  const { resume } = props.resumeData;
+  console.log(resume);
 
   return (
     <Fragment>
@@ -63,13 +44,17 @@ export default function PortfolioDetail(props) {
 }
 
 export async function getServerSideProps(context) {
-  const resumeId = context.query;
-  console.log("server");
-  console.log("server", resumeId);
+  const resumeId = context.query.resumeId;
+  const response = await fetch(
+    `http://localhost:3000/api/getResumeDetail/${resumeId}`,
+    {
+      method: "GET",
+    }
+  );
+  const data = await response.json();
   return {
     props: {
-      resumeId: resumeId,
-      dummy: "dummy",
+      resumeData: data,
     },
   };
 }
