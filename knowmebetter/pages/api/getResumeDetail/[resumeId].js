@@ -11,11 +11,11 @@ async function getResumeDetail(req, res) {
   }
   //get resume id
   const { resumeId } = req.query;
-  //get resume details via id
+  // get resume details via id
   const ResumeDetail = await ResumeDetails.find({
-    email: resumeId,
+    _id: resumeId,
   });
-  //   console.log(ResumeDetail);
+  // console.log("resume via id", ResumeDetail);
   //Return response
   return res
     .status(200)

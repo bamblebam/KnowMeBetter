@@ -8,7 +8,7 @@ import { projects } from "../../config/config";
 
 export default function PortfolioDetail(props) {
   const resume = props.resumeData.resume[0];
-  console.log(resume);
+  // console.log(resume);
 
   //SEO
   const SEO = {
@@ -21,6 +21,7 @@ export default function PortfolioDetail(props) {
     title: resume.fullname,
     description: resume.title,
     image:
+      resume.imageURI ||
       "https://media.istockphoto.com/photos/passenger-airplane-flying-above-clouds-during-sunset-picture-id155439315?k=20&m=155439315&s=612x612&w=0&h=BvXCpRLaP5h1NnvyYI_2iRtSM0Xsz2jQhAmZ7nA7abA=",
     buttons: [
       {
