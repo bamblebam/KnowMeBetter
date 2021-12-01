@@ -8,6 +8,8 @@ import { projects } from "../../config/config";
 
 export default function PortfolioDetail(props) {
   const resume = props.resumeData.resume[0];
+  const repos = props.repos;
+  // console.log(repos);
   // console.log(resume);
 
   //SEO
@@ -48,6 +50,8 @@ export default function PortfolioDetail(props) {
     description: resume.description,
   };
 
+  console.log(repos);
+
   return (
     <Fragment>
       <Header seo={SEO} />
@@ -72,9 +76,22 @@ export async function getServerSideProps(context) {
     }
   );
   const data = await response.json();
+  // console.log(data);
+  //Github API stuff
+  const githubUsername = data.resume[0].github;
+
+  const repos = await fetch(
+    `https://gh-pinned-repos-5l2i19um3.vercel.app/?username=${githubUsername}`,
+    {
+      method: "GET",
+    }
+  );
+  const reposData = await repos.json();
+
   return {
     props: {
       resumeData: data,
+      repos: reposData,
     },
   };
 }
