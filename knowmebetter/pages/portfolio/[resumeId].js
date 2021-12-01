@@ -1,48 +1,60 @@
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { Nav } from "../../components/Nav";
 import { Intro, About } from "../../components/Intro";
-import { Skills, Projects } from "../../components/Work";
-import { Footer, Contact } from "../../components/Footer";
+import { Projects } from "../../components/Work";
 import { Header } from "../../components/Header";
-import {
-  about,
-  contact,
-  intro,
-  navigation,
-  projects,
-  SEO,
-  work,
-} from "../../config/config";
+import { projects } from "../../config/config";
 
 export default function PortfolioDetail(props) {
-  console.log(props);
-  //Router
-  const router = useRouter();
-  //States
-  const [fullname, setFullname] = useState("");
-  // const resumeId = router.query.resumeId;
-  // console.log(resumeId);
+  const resume = props.resumeData.resume[0];
+  const repos = props.repos;
+  // console.log(repos);
+  // console.log(resume);
 
-  // let response = fetch("http://localhost:3000/api/getResumeDetail", {
-  //   method: "POST",
-  //   body: JSON.stringify({ resumeId: resumeId }),
-  // }).then((res) => res.json());
+  //SEO
+  const SEO = {
+    title: resume.fullname,
+    description: resume.description,
+  };
 
-  // const getData = async () => {
-  //   const data = await response;
-  //   setFullname(data.fullname);
-  // };
+  //intro
+  const intro = {
+    title: resume.fullname,
+    description: resume.title,
+    image:
+      resume.imageURI ||
+      "https://media.istockphoto.com/photos/passenger-airplane-flying-above-clouds-during-sunset-picture-id155439315?k=20&m=155439315&s=612x612&w=0&h=BvXCpRLaP5h1NnvyYI_2iRtSM0Xsz2jQhAmZ7nA7abA=",
+    buttons: [
+      {
+        title: "Github",
+        link: "#contact",
+        isPrimary: true,
+      },
+      {
+        title: "LinkedIn",
+        link: "#contact",
+        isPrimary: false,
+      },
+      {
+        title: "Email",
+        link: "#contact",
+        isPrimary: false,
+      },
+    ],
+  };
 
-  // const resumeData = getData();
-  // console.log(resumeData);
-  // console.log(fullname);
+  //about
+  const about = {
+    title: resume.fullname,
+    description: resume.description,
+  };
+
+  console.log(repos);
 
   return (
     <Fragment>
       <Header seo={SEO} />
-      {/* <Nav title={navigation.name} links={navigation.links} /> */}
       <Intro
         title={intro.title}
         description={intro.description}
@@ -50,26 +62,36 @@ export default function PortfolioDetail(props) {
         buttons={intro.buttons}
       />
       <About title={about.title} description={about.description} />
-      <Skills title={work.title} cards={work.cards} />
       <Projects title={projects.title} cards={projects.cards} />
-      <Contact
-        title={contact.title}
-        description={contact.description}
-        buttons={contact.buttons}
-      />
-      <Footer />
     </Fragment>
   );
 }
 
 export async function getServerSideProps(context) {
-  const resumeId = context.query;
-  console.log("server");
-  console.log("server", resumeId);
+  const resumeId = context.query.resumeId;
+  const response = await fetch(
+    `http://localhost:3000/api/getResumeDetail/${resumeId}`,
+    {
+      method: "GET",
+    }
+  );
+  const data = await response.json();
+  // console.log(data);
+  //Github API stuff
+  const githubUsername = data.resume[0].github;
+
+  const repos = await fetch(
+    `https://gh-pinned-repos-5l2i19um3.vercel.app/?username=${githubUsername}`,
+    {
+      method: "GET",
+    }
+  );
+  const reposData = await repos.json();
+
   return {
     props: {
-      resumeId: resumeId,
-      dummy: "dummy",
+      resumeData: data,
+      repos: reposData,
     },
   };
 }

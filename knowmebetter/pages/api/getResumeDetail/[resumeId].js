@@ -1,5 +1,5 @@
-import connect from "../../utils/dbConnect";
-import ResumeDetails from "../../models/ResumeDetail";
+import connect from "../../../utils/dbConnect";
+import ResumeDetails from "../../../models/ResumeDetail";
 
 //Get resume details via id
 async function getResumeDetail(req, res) {
@@ -9,11 +9,13 @@ async function getResumeDetail(req, res) {
   if (db) {
     console.log("connected to db");
   }
-  //get resume details via id
+  //get resume id
+  const { resumeId } = req.query;
+  // get resume details via id
   const ResumeDetail = await ResumeDetails.find({
-    email: "burhanizrangwala@gmail.com",
+    _id: resumeId,
   });
-  // console.log(ResumeDetail);
+  // console.log("resume via id", ResumeDetail);
   //Return response
   return res
     .status(200)

@@ -8,10 +8,11 @@ import { getSession, useSession } from "next-auth/client";
 export default function GetData() {
   //Session
   const [session] = useSession();
-  console.log({ session });
+  const imageURI = session.user.image;
   // define state
   const [fullname, setfullname] = useState("");
   const [github, setgithub] = useState("");
+  const [linkedin, setlinkedin] = useState("");
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
   const [email, setemail] = useState("");
@@ -35,6 +36,8 @@ export default function GetData() {
         city: city,
         country: country,
         github: github,
+        linkedin: linkedin,
+        imageURI: imageURI,
       },
     };
 
@@ -55,6 +58,7 @@ export default function GetData() {
         city: city,
         country: country,
         github: github,
+        linkedin: linkedin,
       },
     });
   };
@@ -115,6 +119,19 @@ export default function GetData() {
                   onChange={(e) => setgithub(e.target.value)}
                 />
                 <div class="form-text">Enter your Github Username.</div>
+              </div>
+
+              {/* Linkedin */}
+              <div className="mb-3">
+                <label htmlFor="title">Linkedin Id</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="linkedin"
+                  id="linkedin"
+                  onChange={(e) => setlinkedin(e.target.value)}
+                />
+                <div class="form-text">Enter your Linkedin URL.</div>
               </div>
 
               {/* Description */}
