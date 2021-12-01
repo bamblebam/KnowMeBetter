@@ -1,29 +1,55 @@
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { Nav } from "../../components/Nav";
 import { Intro, About } from "../../components/Intro";
-import { Skills, Projects } from "../../components/Work";
-import { Footer, Contact } from "../../components/Footer";
+import { Projects } from "../../components/Work";
 import { Header } from "../../components/Header";
-import {
-  about,
-  contact,
-  intro,
-  navigation,
-  projects,
-  SEO,
-  work,
-} from "../../config/config";
+import { projects } from "../../config/config";
 
 export default function PortfolioDetail(props) {
-  const { resume } = props.resumeData;
+  const resume = props.resumeData.resume[0];
   console.log(resume);
+
+  //SEO
+  const SEO = {
+    title: resume.fullname,
+    description: resume.description,
+  };
+
+  //intro
+  const intro = {
+    title: resume.fullname,
+    description: resume.title,
+    image:
+      "https://media.istockphoto.com/photos/passenger-airplane-flying-above-clouds-during-sunset-picture-id155439315?k=20&m=155439315&s=612x612&w=0&h=BvXCpRLaP5h1NnvyYI_2iRtSM0Xsz2jQhAmZ7nA7abA=",
+    buttons: [
+      {
+        title: "Github",
+        link: "#contact",
+        isPrimary: true,
+      },
+      {
+        title: "LinkedIn",
+        link: "#contact",
+        isPrimary: false,
+      },
+      {
+        title: "Email",
+        link: "#contact",
+        isPrimary: false,
+      },
+    ],
+  };
+
+  //about
+  const about = {
+    title: resume.fullname,
+    description: resume.description,
+  };
 
   return (
     <Fragment>
       <Header seo={SEO} />
-      {/* <Nav title={navigation.name} links={navigation.links} /> */}
       <Intro
         title={intro.title}
         description={intro.description}
@@ -31,14 +57,7 @@ export default function PortfolioDetail(props) {
         buttons={intro.buttons}
       />
       <About title={about.title} description={about.description} />
-      <Skills title={work.title} cards={work.cards} />
       <Projects title={projects.title} cards={projects.cards} />
-      <Contact
-        title={contact.title}
-        description={contact.description}
-        buttons={contact.buttons}
-      />
-      <Footer />
     </Fragment>
   );
 }
