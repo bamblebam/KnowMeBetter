@@ -8,7 +8,8 @@ import { getSession, useSession } from "next-auth/client";
 export default function GetData() {
   //Session
   const [session] = useSession();
-  const imageURI = session.user.image;
+  const router = useRouter();
+
   // define state
   const [fullname, setfullname] = useState("");
   const [github, setgithub] = useState("");
@@ -20,11 +21,14 @@ export default function GetData() {
   const [city, setcity] = useState("");
   const [country, setcountry] = useState("");
 
-  const router = useRouter();
-
   //get the values and display it on next page
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!session) {
+      router.push("/");
+    }
+
+    const imageURI = session.user.image;
 
     const bodyQuery = {
       resumeData: {
