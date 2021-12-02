@@ -54,7 +54,7 @@ export const About = ({ title, description }) => {
       <div className="container">
         <h1 className="text-primary fw-bold">Who am I?</h1>
         <h3>I am {title}</h3>
-        <div className="px-sm-5">{description}</div>
+        <div>{description}</div>
       </div>
     </div>
   );
