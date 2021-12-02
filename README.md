@@ -3,10 +3,11 @@
 Know me Better is a static web-portfolio generator which seamlessly integrates with your github account to showcase your portfolio to the entire world.
 
 ## Technologies
-We have used the NEXT and MERN architecture to build this app.  
-NEXT JS provides us with a preconfigured node server with a built in file handling system to keep the API's seperate from the frontend part.  
-It also provides us with a preconfigured React server along with routing, which we have used to create the frontend.  
-It makes server handling very easy by utilizing soft and hot reloading.
+1) We have used the NEXT and MERN architecture to build this app.  
+2) NEXT JS provides us with a preconfigured node server with a built in file handling system to keep the API's seperate from the frontend part.  
+3) It also provides us with a preconfigured React server along with routing, which we have used to create the frontend.  
+4) User Authentication has been handled using Next JS via github OAuth as it is meant For Developers.
+5) It makes server handling very easy by utilizing soft and hot reloading.
 
 ## Future Scope
 This application has a lot of future scope, and there are a lot of additions that we plan to do to this over time.
