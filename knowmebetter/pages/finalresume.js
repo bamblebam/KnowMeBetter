@@ -3,8 +3,14 @@ import router from "next/router";
 import Head from "next/head";
 import { useRouter } from "next/router";
 export default function FinalResume({ props }) {
+
+
   const data = router.query;
+
+
   console.log(data);
+
+
   return (
     <Fragment>
       <Head>
@@ -20,18 +26,18 @@ export default function FinalResume({ props }) {
         <div style={{ backgroundColor: "#f5f5f5", height: "100%" }}>
           <div class="row">
             <div class="col text-left m-2">
-              <h3>title</h3>
-              <h4>fullname</h4>
+              <h3>{data.title}</h3>
+              <h4>{data.fullname}</h4>
             </div>
             <div class="col m-2" style={{ textAlign: "right" }}>
-              <p>Phone number - phone</p>
-              <p>Email Id - email</p>
-              <p>City - city</p>
-              <p>Country - country</p>
+              <p>Phone number - {data.phone}</p>
+              <p>Email Id - {data.email}</p>
+              <p>City - {data.city}</p>
+              <p>Country - {data.country}</p>
             </div>
           </div>
           <div className="row m-2">
-            <p>description</p>
+            <p>{data.description}</p>
           </div>
           <div className="row m-2">
             <h3>Github Repos</h3>
