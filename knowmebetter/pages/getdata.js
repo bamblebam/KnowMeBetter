@@ -30,6 +30,13 @@ export default function GetData() {
 
     const imageURI = session.user.image;
 
+    const githubData = await fetch(`https://api.github.com/users/${github}`, {
+      method: "GET",
+    });
+
+    const githubDataJson = await githubData.json();
+    const avatar = githubDataJson.avatar_url;
+
     const bodyQuery = {
       resumeData: {
         fullname: fullname,
@@ -41,7 +48,7 @@ export default function GetData() {
         country: country,
         github: github,
         linkedin: linkedin,
-        imageURI: imageURI,
+        imageURI: avatar,
       },
     };
 
