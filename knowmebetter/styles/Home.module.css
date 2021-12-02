@@ -50,7 +50,8 @@
 }
 /* fOR project Name */
 .project {
-  color: red;
+  color: white;
+  font-size: 10rem;
 }
 .title a:hover,
 .title a:focus,
