@@ -7,18 +7,42 @@
   align-items: center;
   height: 100vh;
   background: #00d2ff; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
+  
+  
+  /* background: linear-gradient(
+    -45deg,
     #3a7bd5,
-    #00d2ff
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #3a7bd5,
-    #00d2ff
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    #00d2ff,
+    red,
+    black
+  ); */
+  
+   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+  
 }
+.container{
 
+  background: -webkit-linear-gradient(
+    -45deg,
+    #3a7bd5,
+    #00d2ff,
+    #ee7752, #e73c7e, #23a6d5, #23d5ab
+   
+  ); 
+  background-size: 400% 400%;
+	-webkit-animation: gradient 15s ease infinite;
+}
+@keyframes gradient{
+  0% {
+    background-position:0% 50%;
+  }
+  50% {
+    background-position:100% 50%;
+  }
+  100% {
+    background-position:0% 50%;
+  }
+}
 .main {
   padding: 5rem 0;
   flex: 1;
@@ -69,7 +93,21 @@
 .description {
   text-align: center;
 }
-
+.subtitle {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 2.5rem;
+  text-align: center;
+  color: white;
+}
+.subtitlename {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: whitesmoke;
+}
 .description {
   line-height: 1.5;
   font-size: 1.5rem;

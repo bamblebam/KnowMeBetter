@@ -15,11 +15,11 @@ function Navbar() {
             <a>Home</a>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/about">
             <a>About</a>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/getdata">
             <a>Resume</a>
