@@ -27,6 +27,7 @@ export default function GetData() {
     if (!session) {
       router.push("/");
     }
+    const github = session.user.name;
 
     const imageURI = session.user.image;
 
@@ -111,17 +112,18 @@ export default function GetData() {
               </div>
 
               {/* Github */}
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <label htmlFor="title">Github Id</label>
                 <input
                   type="text"
                   className="form-control"
                   name="github"
                   id="github"
+
                   onChange={(e) => setgithub(e.target.value)}
                 />
                 <div class="form-text">Enter your Github Username.</div>
-              </div>
+              </div> */}
 
               {/* Linkedin */}
               <div className="mb-3">

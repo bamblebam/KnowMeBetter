@@ -7,6 +7,10 @@ export default function PortfolioDetail(props) {
   const resume = props.resumeData.resume[0];
   const repos = props.repos;
   const githubURL = `https://github.com/${resume.github}`;
+  const emailURL = `mailto:${resume.email}`;
+  // console.log('Rishabh');
+  // console.log(emailURL);
+  // console.log('kush Patel');
   // console.log(repos);
   // console.log(resume);
 
@@ -36,7 +40,7 @@ export default function PortfolioDetail(props) {
       },
       {
         title: "Email",
-        link: "#contact",
+        link: emailURL,
         isPrimary: false,
       },
     ],
@@ -50,7 +54,7 @@ export default function PortfolioDetail(props) {
 
   //projects
   const projects = {
-    
+
     github: githubURL,
     cards: repos,
   };
@@ -67,7 +71,7 @@ export default function PortfolioDetail(props) {
         buttons={intro.buttons}
       />
       <About title={about.title} description={about.description} />
-    
+
       <Projects github={projects.github} cards={projects.cards} />
     </Fragment>
   );
