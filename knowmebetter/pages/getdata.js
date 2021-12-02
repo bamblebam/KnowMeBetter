@@ -55,7 +55,7 @@ export default function GetData() {
 
     const resumeId = response2.resume._id;
 
-    router.push(`/finalresume/${resumeId}`);
+    router.push(`/portfolio/${resumeId}`);
   };
 
   //Create a form to get data from the user
