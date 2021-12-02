@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 import "../components/Navbar.css";
 import "../styles/custom.global.scss";
+// import  "../styles/custom.home.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
