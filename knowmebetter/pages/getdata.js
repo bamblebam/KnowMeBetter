@@ -47,20 +47,11 @@ export default function GetData() {
       body: JSON.stringify(bodyQuery),
     });
 
-    router.push({
-      pathname: "/finalresume",
-      query: {
-        fullname: fullname,
-        title: title,
-        description: description,
-        email: email,
-        phone: phone,
-        city: city,
-        country: country,
-        github: github,
-        linkedin: linkedin,
-      },
-    });
+    const response2 = await response.json();
+
+    const resumeId = response2.resume._id;
+
+    router.push(`/finalresume/${resumeId}`);
   };
 
   //Create a form to get data from the user

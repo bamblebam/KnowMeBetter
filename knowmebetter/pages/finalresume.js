@@ -3,13 +3,7 @@ import router from "next/router";
 import Head from "next/head";
 import { useRouter } from "next/router";
 export default function FinalResume({ props }) {
-
-
   const data = router.query;
-
-
-  console.log(data);
-
 
   return (
     <Fragment>
@@ -94,4 +88,11 @@ export default function FinalResume({ props }) {
       </div>
     </Fragment>
   );
+}
+
+export async function getServerSideProps(context) {
+  console.log(context.query);
+  return {
+    props: context.query,
+  };
 }
