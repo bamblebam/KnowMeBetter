@@ -2,6 +2,15 @@
 
 Know me Better is a static web-portfolio generator which seamlessly integrates with your github account to showcase your portfolio to the entire world.
 
+## Installation
+1. Fork the repository
+2. Run the command ``` cd knowmebetter ```
+3. Run the command ``` npm i ```
+4. Run the command ``` npm run dev ```
+5. Check it on localhost:3000
+
+**Note:** This app requires an active github account to use.
+
 ## Technologies
 1) We have used the NEXT and MERN architecture to build this app.  
 2) NEXT JS provides us with a preconfigured node server with a built in file handling system to keep the API's seperate from the frontend part.  
@@ -29,6 +38,6 @@ Portfolio
 
 
 ## Contributors
-1. Kush Patel - 1911101
-2. Burhanuddin Rangwala - 1911109
-3. Rishabh Kothari - 1911110
+1. Kush Patel - 1911101 - MERN Stack
+2. Burhanuddin Rangwala - 1911109 - MERN Stack
+3. Rishabh Kothari - 1911110 - MERN Stack
