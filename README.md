@@ -16,8 +16,6 @@ This application has a lot of future scope, and there are a lot of additions tha
 3. Update the frontend.
 4. Add additional resume templates. (Right now we only have one)
 5. Allow user to customize his own resume. (Something like canva)
-
-## Deployment : https://know-me-better-final-ieipdoocj-kush-pixel.vercel.app
 ## Video
 Resume Form
 ![image](https://user-images.githubusercontent.com/53450613/144542040-023a9f6b-2e16-405a-8019-83ad94772249.png)
