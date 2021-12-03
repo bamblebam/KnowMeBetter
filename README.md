@@ -17,7 +17,7 @@ This application has a lot of future scope, and there are a lot of additions tha
 4. Add additional resume templates. (Right now we only have one)
 5. Allow user to customize his own resume. (Something like canva)
 
-## Deployment : https://know-me-better-final-ieipdoocj-kush-pixel.vercel.app
+
 ## Video
 
 ## Contributors
