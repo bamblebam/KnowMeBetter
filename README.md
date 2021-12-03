@@ -26,7 +26,7 @@ This application has a lot of future scope, and there are a lot of additions tha
 4. Add additional resume templates. (Right now we only have one)
 5. Allow user to customize his own resume. (Something like canva)
 ## Video
-https://user-images.githubusercontent.com/73009817/144549676-db7f7042-3401-4f99-8a55-76db98edfa46.mp4
+https://user-images.githubusercontent.com/73009817/144577431-976b006b-75f1-4d8c-af07-0c5a55c3a7fd.mp4
 
 ## UI SCREENS
 #### 1.Home Page
